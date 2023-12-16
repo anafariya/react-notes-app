@@ -2,11 +2,12 @@ import React from 'react'
 import { FaFileAlt } from "react-icons/fa";
 import { FaDownload } from "react-icons/fa6";
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import { motion } from 'framer-motion';
 
-function Card({data}) {
+
+function Card({data,reference}) {
   return (
-    <>
-    <div className="flex shrink-0 relative w-60 h-72 rounded-[50px] bg-zinc-500 text-white px-8 py-10 overflow-hidden">
+    <motion.div drag dragConstraints={reference} whileDrag={{scale: 1.2}} className="flex shrink-0 relative w-60 h-72 rounded-[50px] bg-zinc-500 text-white px-8 py-10 overflow-hidden">
     <FaFileAlt/>
     <p className='text-sm leaning-tight font-semibold mt-5'>{data.desc}</p>
     <div className='footer absolute bottom-0 w-full h-20 left-0'>
@@ -25,8 +26,8 @@ function Card({data}) {
         </div>
         )}
     </div>
-    </div>
-     </>
+    </motion.div>
+    
   )
 }
 
